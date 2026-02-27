@@ -1,0 +1,32 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+commit_msg_file=$1
+commit_msg=$(cat "$commit_msg_file")
+
+# Get current branch name
+branch_name=$(git rev-parse --abbrev-ref HEAD)
+
+# Skip validation for main/master branches (optional)
+if [ "$branch_name" = "main" ] || [ "$branch_name" = "master" ]; then
+  exit 0
+fi
+
+# Check if commit message starts with branch name
+case "$commit_msg" in
+  "$branch_name"*) 
+    exit 0
+    ;;
+  *)
+    echo ""
+    echo "❌ Commit message must start with branch name!"
+    echo ""
+    echo "Current branch:"
+    echo "  $branch_name"
+    echo ""
+    echo "Example:"
+    echo "  $branch_name your commit message"
+    echo ""
+    exit 1
+    ;;
+esac
