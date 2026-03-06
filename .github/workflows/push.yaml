@@ -1,14 +1,12 @@
-name: "pr validation 2"
-on:
-  pull_request:
-    branches: [develop,main]
+name: push
+on: push
 jobs:
-  job:
+  job1:
     runs-on: ubuntu-latest
     steps:
-      - name: script
+      - name: push_task
         run: |
-          echo "hello world"
+          echo "Hi"
           echo "GITHUB_BASE_REF: $GITHUB_BASE_REF"
           echo "GITHUB_HEAD_REF: $GITHUB_HEAD_REF"
           echo "GITHUB_REF: $GITHUB_REF"
