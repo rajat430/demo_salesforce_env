@@ -1,0 +1,12 @@
+name: "tmp workflow"
+on:
+  pull_request:
+    branches: [main,develop]
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    steps:
+      - name: script
+        run: |
+          echo "hello world"
+          echo $GITHUB_REF_NAME
