@@ -3,13 +3,13 @@ on:
   pull_request:
     branches: [develop,main]
 jobs:
-  rollback:
+  job:
     runs-on: ubuntu-latest
     env:
-      current_branch_name: $github.ref
+      CURRENT_BRANCH_NAME: ${{github.ref}}
     steps:
       - name: script
         run: |
           echo "hello world"
-          echo $GITHUB_REF_NAME
-          echo $current_branch_name
+          echo "$GITHUB_REF_NAME"
+          echo "$CURRENT_BRANCH_NAME"
