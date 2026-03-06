@@ -1,5 +1,3 @@
 #This is a file
 I am user1 from pro1 and would like to change this file.
-This is a change done by user2 from project2
-changes for merge in main to test pr-validate2
-
+This is a change done by user2 from project2 test
