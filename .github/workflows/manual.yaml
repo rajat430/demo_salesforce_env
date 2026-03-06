@@ -1,10 +1,14 @@
 name: manual
-on:
-  workflow_dispatch:
+on: workflow_dispatch
 jobs:
-  simple_job:
-  runs-on: ubuntu-latest
-  steps:
-    - name: task1
-      run: echo "hi"
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: task1
+        run: |
+          echo "Hi"
+          echo "GITHUB_BASE_REF: $GITHUB_BASE_REF"
+          echo "GITHUB_HEAD_REF: $GITHUB_HEAD_REF"
+          echo "GITHUB_REF: $GITHUB_REF"
+          echo "GITHUB_REF_NAME: $GITHUB_REF_NAME"
     
