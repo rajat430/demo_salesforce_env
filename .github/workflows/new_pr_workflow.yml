@@ -1,0 +1,29 @@
+name: new_pr_workflow
+on:
+    pull_request:
+        branches: [develope,main]
+    workflow_dispatch:
+        inputs:
+            checkout_repo_from:
+                description: ''
+                default: main
+                required: false
+                type: choice
+                options:
+                    - main
+                    - develop
+jobs:
+    jobA:
+        runs-on: ubuntu-latest
+        steps:
+            - name: task1
+              run: |
+                echo "Hi, This is your workflow"
+            - name: checkout
+              uses: actions/checkout@v6.0.2
+              with:
+                ref: ${{inputs.checkout_repo_from}}
+            - name: checking file
+              run: |
+                cat main.txt
+
