@@ -1,0 +1,10 @@
+name: manual
+on:
+  workflow_dispatch:
+jobs:
+  simple_job:
+  runs-on: ubuntu-latest
+  steps:
+    - name: task1
+      run: echo "hi"
+    
