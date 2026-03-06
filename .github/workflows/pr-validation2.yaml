@@ -1,7 +1,7 @@
 name: "tmp workflow"
 on:
   pull_request:
-    branches: [develop]
+    branches: [develop,main]
 jobs:
   rollback:
     runs-on: ubuntu-latest
